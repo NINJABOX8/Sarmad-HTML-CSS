@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Club Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+  <!-- Google Fonts: Orbitron & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Gojo Palette Variables */
+    :root {
+      --bg-dark: #0b0d17;
+      --bg-purple: #1a102f;
+      --six-eyes-blue: #00f0ff;
+      --hollow-purple: #9b5de5;
+      --infinity-glow: #a78bfa;
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-purple) 100%);
+      font-family: 'Poppins', sans-serif;
+      padding: 50px 15px;
+      color: var(--text-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Pulsing Title Glow */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      color: var(--six-eyes-blue);
+      font-weight: 900;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      animation: pulseGlow 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.4),
+                    0 0 20px rgba(0, 240, 255, 0.2);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.9),
+                    0 0 40px rgba(155, 93, 229, 0.6),
+                    0 0 60px rgba(155, 93, 229, 0.4);
+      }
+    }
+
+    /* Floating Idle Aura Effect */
+    .club-card {
+      text-align: center;
+      border: 2px solid rgba(167, 139, 250, 0.3);
+      border-radius: 16px;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                  0 0 15px rgba(155, 93, 229, 0.15);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: floatAura 6s ease-in-out infinite alternate;
+    }
+
+    .col-lg-4:nth-child(2) .club-card {
+      animation-delay: 2s;
+    }
+    .col-lg-4:nth-child(3) .club-card {
+      animation-delay: 4s;
+    }
+
+    @keyframes floatAura {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Shimmer Light Sweep Across Cards */
+    .club-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(0, 240, 255, 0.1) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .club-card:hover::before {
+      animation: shimmerSweep 1.2s ease forwards;
+    }
+
+    @keyframes shimmerSweep {
+      0% {
+        opacity: 1;
+        left: -100%;
+      }
+      100% {
+        opacity: 1;
+        left: 100%;
+      }
+    }
+
+    /* Hover Elevation & Energy Glow */
+    .club-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: var(--six-eyes-blue);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7),
+                  0 0 30px rgba(0, 240, 255, 0.5),
+                  0 0 50px rgba(155, 93, 229, 0.3);
+    }
+
+    .club-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--infinity-glow);
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .club-card:hover h3 {
+      color: var(--six-eyes-blue);
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+    }
+
+    .club-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My School Clubs</h1>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="club-card">
+          <h3>Coding Club</h3>
+          <p>I learn how to create websites, games, and simple apps.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="club-card">
+          <h3>Science Club</h3>
+          <p>I enjoy doing experiments and discovering how things work.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="club-card">
+          <h3>Art Club</h3>
+          <p>I love drawing, painting, and creating colourful designs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
